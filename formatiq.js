@@ -7,7 +7,6 @@
 /**
  * String.prototype.format
  * Using: "Hello {0}!".format("Alex")
- * @return {String}
  */
 String.prototype.format = function () {
     var i, k, arg,
@@ -19,7 +18,7 @@ String.prototype.format = function () {
         arg = args[i];
         data.push(arg);
 
-        if (typeof arg === "object") {
+        if (typeof arg === "object" && !(arg instanceof Array)) {
             for (k in arg) {
                 data[k] = arg[k];
             }
