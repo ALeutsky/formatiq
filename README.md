@@ -1,3 +1,3 @@
 formatiQ
 ========
-formatiQ is simple way to format of strings
+formatiQ is simple way to format
