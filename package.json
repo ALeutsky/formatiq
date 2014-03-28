@@ -1,20 +1,25 @@
 {
-  "name": "formatiq",
-  "version": "1.0.0",
-  "description": "String.prototype.format",
-  "main": "formatiq.js",
-  "repository": {
-    "type": "git",
-    "url": "https://ALeutsky@github.com/ALeutsky/formatiq.git"
-  },
-  "keywords": [
-    "string",
-    "format"
-  ],
-  "author": "Alexander Leutsky",
-  "license": "MIT",
-  "gitHead": "68ccda1947c50a7ad92a76053e022d0f8d60421e",
-  "bugs": {
-    "url": "https://github.com/ALeutsky/formatiq/issues"
-  }
+    "name": "formatiq",
+    "version": "1.0.0",
+    "description": "String.prototype.format",
+    "main": "formatiq.js",
+    "repository": {
+        "type": "git",
+        "url": "https://ALeutsky@github.com/ALeutsky/formatiq.git"
+    },
+    "keywords": [
+        "string",
+        "format"
+    ],
+    "ignore": [
+        "demo",
+        "node_modules",
+        "components"
+    ],
+    "author": "Alexander Leutsky",
+    "license": "MIT",
+    "gitHead": "68ccda1947c50a7ad92a76053e022d0f8d60421e",
+    "bugs": {
+        "url": "https://github.com/ALeutsky/formatiq/issues"
+    }
 }
