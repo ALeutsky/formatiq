@@ -1,6 +1,6 @@
 {
     "name": "formatiq",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "String.prototype.format",
     "main": "formatiq.js",
     "repository": {
