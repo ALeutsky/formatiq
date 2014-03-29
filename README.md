@@ -1,10 +1,27 @@
 formatiQ
 ========
 
-formatiQ is a easy tool to format data
+**formatiQ** is a easy tool to format data
 
+#### formatiQ(str, data,..)
 
-Examples:
+    formatiQ(
+        "{0} {name}", 
+        "Hello", {name: "Lisa"}
+    )
+    > "Hello Lisa"
+    
+But I prefer extend String.prototype
+    
+#### formatiQ.configure(options)
+
+    formatiQ.configure({
+        extendStringPrototype: true // default: false. true ~ String.prototype.format = function (data..) {...}
+    });
+    
+You need to use this function when **formatiq.js** will be loaded.
+
+#### Examples:
 
     "{} {} {}".format(1, 2, 3)
     > "1 2 3"
