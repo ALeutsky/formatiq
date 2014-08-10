@@ -41,20 +41,17 @@
         });
     }
 
-    function getValue (key, data) {
-        var props = key.split(".", 2);
+    function getValue (keys, data) {
+        var i = 0,
+            keys = keys.split(".");
 
-        if (data && typeof data == "object") {
-            data = data[props[0]];
-
-            if (props.length == 2) {
-                return getValue(props[1], data);
-            } else {
-                return (data == undefined) ? "" : data;
-            }
+        while (data && typeof data == "object" && i < 30) {
+            data = data[keys[i++]];
         }
 
-        return "";
+        if (i < keys.length) return "";
+
+        return (data == undefined || data == null) ? "" : data;
     }
 
     formatiQ.configure = function (options) {
