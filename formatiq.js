@@ -32,7 +32,7 @@
             }
         }
 
-        return this.replace(/\{([^{}]*)\}/g, function (m, key, index, source) {
+        return this.replace(/\{([^{}]*)\}/g, function (m, key) {
             if (key == "") {
                 return data[next++];
             } else {
@@ -43,13 +43,16 @@
 
     function getValue (keys, data) {
         var i = 0,
-            keys = keys.split(".");
+            keys = keys.split("."),
+            n = keys.length;
 
-        while (data && typeof data == "object" && i < 30) {
+        while (data && typeof data == "object" && i < n) {
             data = data[keys[i++]];
         }
 
-        if (i < keys.length) return "";
+        if (i < n) {
+            return "";
+        }
 
         return (data == undefined || data == null) ? "" : data;
     }
