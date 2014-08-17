@@ -33,11 +33,19 @@
         }
 
         return this.replace(/\{([^{}]*)\}/g, function (m, key) {
+            var value;
+
             if (key == "") {
-                return data[next++];
+                value = data[next++];
             } else {
-                return getValue(key, data);
+                value = getValue(key, data);
             }
+
+            if (value === undefined || value === null) {
+                value = "";
+            }
+
+            return value;
         });
     }
 
@@ -54,7 +62,7 @@
             return "";
         }
 
-        return (data == undefined || data == null) ? "" : data;
+        return data;
     }
 
     formatiQ.configure = function (options) {
