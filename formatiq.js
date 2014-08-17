@@ -9,10 +9,10 @@
  * Using: "Hello {0}!".format("Alex")
  */
 (function (exports) {
-    var _slice = Array.prototype.slice;
+    var arraySlice = Array.prototype.slice;
 
-    var formatiQ = function () {
-        return format.apply(arguments[0], _slice.call(arguments, 1));
+    var isFunction = function (v) {
+        return typeof v == "function";
     }
 
     function format () {
@@ -37,6 +37,10 @@
 
             if (key == "") {
                 value = data[next++];
+
+                if (isFunction(value)) {
+                    value = value();
+                }
             } else {
                 value = getValue(key, data);
             }
@@ -50,15 +54,22 @@
     }
 
     function getValue (keys, data) {
-        var i = 0,
+        var value,
+            i = 0,
             keys = keys.split("."),
             n = keys.length;
 
         while (data && typeof data == "object" && i < n) {
-            data = data[keys[i++]];
+            value = data[keys[i++]];
+            data = isFunction(value) ? value.call(data) : value;
         }
 
         return (i < n) ? "" : data;
+    }
+
+
+    var formatiQ = function () {
+        return format.apply(arguments[0], arraySlice.call(arguments, 1));
     }
 
     formatiQ.configure = function (options) {
