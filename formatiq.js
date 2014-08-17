@@ -58,11 +58,7 @@
             data = data[keys[i++]];
         }
 
-        if (i < n) {
-            return "";
-        }
-
-        return data;
+        return (i < n) ? "" : data;
     }
 
     formatiQ.configure = function (options) {
