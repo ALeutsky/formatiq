@@ -1,0 +1,10 @@
+{
+    "name": "formatiq",
+    "main": "formatiq.js",
+    "ignore": [
+        "demo",
+        "temp*",
+        "plans.txt",
+        "package.json"
+    ]
+}
