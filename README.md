@@ -45,7 +45,7 @@ You need to use this function when **formatiq.js** will be loaded.
 
 **Built-in format**
 
-    **format_spec** ::= %\[0]\[part]
+    **format_spec** ::= %[0][part]
     **part**        ::= Y | y | M | D | H | h | m | s
     **0**           ::= zero-padding
 
