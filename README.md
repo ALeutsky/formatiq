@@ -40,6 +40,13 @@ But I prefer extend String.prototype
     
 You need to use this function when **formatiq.js** will be loaded.
 
+### Dates
+
+**Built-in format**
+format_spec ::= %\[0]\[part]
+0 -
+
+
 ### Examples:
 
 Base:
