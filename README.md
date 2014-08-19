@@ -45,24 +45,24 @@ You need to use this function when **formatiq.js** will be loaded.
 
 **Built-in format**
 
-    **format_spec** ::= %[0][part]
-    **part**        ::= Y | y | M | D | H | h | m | s
-    **0**           ::= zero-padding
+    format_spec ::= %[0][part]
+    part        ::= Y | y | M | D | H | h | m | s
+    0           ::= zero-padding
 
-    **%Y**  - full year: 2014
-    **%y**  - short year: 14
-    **%M**  - months: 1..12
-    **%0M** - months: 01..12
-    **%D**  - dates: 1..31
-    **%0D** - dates: 01..31
-    **%H**  - hours: 0..23
-    **%0H** - hours: 00..23
-    **%h**  - hours: 0..12
-    **%0h** - hours: 00..12
-    **%m**  - minutes: 0..59
-    **%0m** - minutes: 00..59
-    **%s**  - seconds: 0..59
-    **%0s** - seconds: 00..59
+    %Y  - full year: 2014
+    %y  - short year: 14
+    %M  - months: 1..12
+    %0M - months: 01..12
+    %D  - dates: 1..31
+    %0D - dates: 01..31
+    %H  - hours: 0..23
+    %0H - hours: 00..23
+    %h  - hours: 0..12
+    %0h - hours: 00..12
+    %m  - minutes: 0..59
+    %0m - minutes: 00..59
+    %s  - seconds: 0..59
+    %0s - seconds: 00..59
 
 **Moment JS**
 
