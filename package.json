@@ -2,6 +2,7 @@
     "name": "formatiq",
     "description": "String.prototype.format",
     "main": "formatiq.js",
+    "version": "1.1.1",
     "repository": {
         "type": "git",
         "url": "https://ALeutsky@github.com/ALeutsky/formatiq.git"
