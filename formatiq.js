@@ -8,10 +8,10 @@
  * String.prototype.format
  * Using: "Hello {0}!".format("Alex")
  */
-(function (exports) {
+(function (root) {
     var fn = {},
         stringFormat = /{([^{}:!]*)(?:|!([^{}:]*))(?:|:([^{}]*))}/g, // field_name, conversion, format_spec
-        dateFormat  = /%([0]?)([a-z])/gi; // conversion, key
+        dateFormat   = /%([0]?)([a-z])/gi; // conversion, key
 
 
     // Tools
@@ -141,6 +141,7 @@
     }
 
 
+    // Initialization
     var formatiQ = function () {
         return formatString.apply(arguments[0], arraySlice.call(arguments, 1));
     }
@@ -161,5 +162,10 @@
         }
     }
 
-    exports.formatiQ = formatiQ;
-}) (window);
+
+    if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.exports == exports) {
+        exports = module.exports = formatiQ;
+    } else {
+        root.formatiQ = formatiQ;
+    }
+}) (this);
