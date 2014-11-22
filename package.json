@@ -9,7 +9,10 @@
     },
     "keywords": [
         "string",
-        "format"
+        "format",
+        "printf",
+        "sprintf",
+        "date"
     ],
     "ignore": [
         "demo",

@@ -11,7 +11,8 @@
 (function (root) {
     var fn = {},
         stringFormat = /{([^{}:!]*)(?:|!([^{}:]*))(?:|:([^{}]*))}/g, // field_name, conversion, format_spec
-        dateFormat   = /%([0]?)([a-z])/gi; // conversion, key
+        dateFormat   = /%([0]?)([a-z])/gi, // conversion, key
+        formatSpec   = /^(?:(?:(.?)([<>=^]))|)([+= ]?)(#?)(0?)(\d*)(,?)(?:\.(\d*)|)([A-Za-z%]?)$/; // [[fill]align][sign][#][0][width][,][.precision][type]
 
 
     // Tools
@@ -23,6 +24,85 @@
 
     var isMoment = function (val) {
         return false;
+    }
+
+    function fillString (char, len) {
+        var r = "";
+        for (var i = 0; i < len; i++) {
+            r += char;
+        }
+        return r;
+    }
+
+
+    var formatBySpec = function (spec, value) {
+        /*
+        0 -
+        1 - fill
+        2 - align
+        3 - sign
+        4 - #
+        5 - 0
+        6 - width
+        7 - ,
+        8 - precision
+        9 - type
+         */
+        var pspec = formatSpec.exec(spec);
+
+        console.log(pspec);
+
+        if (!pspec[0]) {
+            return value;
+        }
+
+        var result = "";
+
+        var fill = pspec[1],
+            align = pspec[2],
+            width = pspec[6] * 1,
+            precision = pspec[8],
+            type = pspec[9],
+            lcType;
+
+        if (!type) {
+            type = lcType = "s";
+        } else {
+            lcType = type.toLowerCase();
+        }
+
+        switch (lcType) {
+            case "f":
+                value = value.toFixed(precision === "" || precision === undefined ? 6 : precision);
+
+                break;
+        }
+
+        if (width > value.length) {
+            if (!align) {
+                align = ">";
+                fill  = " ";
+            } else {
+                if (!fill) {
+                    fill = " ";
+                }
+            }
+
+            switch (align) {
+                case "<":
+                    value = value + fillString(fill, width - value.length);
+                    break;
+                case ">":
+                    value = fillString(fill, width - value.length) + value;
+                    break;
+                case "=":
+                    break;
+                case "^":
+                    break;
+            }
+        }
+
+        return value;
     }
 
 
@@ -118,7 +198,7 @@
                 } else if (isMoment(value)) {
                     value = value.format(spec);
                 } else {
-
+                    value = formatBySpec(spec, value);
                 }
             }
 

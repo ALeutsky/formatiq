@@ -1,0 +1,56 @@
+conv
+!str,lc,up
+
+str - toString
+lc - toLowerCase
+uc - toUpperCase
+
+
+== Number format
+
+
+
+== Date format
+
+days:
+0D - 01-31
+D  - 1-31
+Пон ..
+Понедельник ..
+
+months
+0M - 01-12
+M  - 1-12
+Янв ..
+Январь ..
+Января ..
+
+years
+y - 14
+Y - 2014
+
+hours
+h  - 0-12
+0h - 00-12
+H  - 0-23
+0H - 00-23
+am, pm
+
+minutes
+m  - 0-59
+0m - 00-59
+
+seconds
+s  - 0-59
+0s - 00-59
+
+timezone
+
+
+! - Первая буква заглавная (по умолчанию)
+^ - Все буквы заглавные
+_ - Все буквы малые
+0 - Заполнить нулями
+
+
+%Y-%0M-%0d
